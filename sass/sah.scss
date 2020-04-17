@@ -1,0 +1,19 @@
+@import 'variables';
+
+$button-background-color: #B63100;
+
+$link-color: #B63100;
+$link-color-hover: #006ccc;
+
+@mixin button-material-hover() {
+  background-color: #B63100;
+  box-shadow: $box-shadow-material;
+  color: $button-color;
+  text-decoration: none;
+
+  &:before {
+    content: none;
+  }
+}
+
+@import 'global';
