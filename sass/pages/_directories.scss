@@ -59,7 +59,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
 
 .buddyboss-select-inner {
   background-color: white;
-  border-color: rgba(0, 0, 0, 0.11); // dropdowns etc. are not quite links. match search border instead
+ /* border-color: rgba(0, 0, 0, 0.11); */ // dropdowns etc. are not quite links. match search border instead
+  border-color: #575757; 
   border-width: 1px;
   color: black;
   text-transform: none;
@@ -75,14 +76,16 @@ body.activity:not(.bp-user) .item-list-tabs ul li a,
 
 .selected-tab:after,
 .buddyboss-select-inner:after {
-  color: rgba(0, 0, 0, 0.11);
+  /* color: rgba(0, 0, 0, 0.11); */
+  color: #575757;
 }
 
 #bbp-search-index-form,
 #search-message-form,
 .groups-members-search,
 #buddypress div.dir-search {
-  border-color: rgba(0, 0, 0, 0.11);
+ /* border-color: rgba(0, 0, 0, 0.11); */
+ border-color: #575757;
 }
 
 .groups-members-search input[type="text"],
