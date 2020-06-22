@@ -58,6 +58,8 @@
 
   $(document).ready(function(){
 
+    document.body.className = document.body.className.replace("activity","home");
+
     if ( $( ".cv p" ).length ) {
       $('.cv #bp-attachment-xprofile-file ').after("<span><button id='delete-upload'>Delete</button></span>");
 
