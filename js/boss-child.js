@@ -58,7 +58,6 @@
 
   $(document).ready(function(){
 
-    document.body.className = document.body.className.replace("activity","home");
 
     if ( $( ".cv p" ).length ) {
       $('.cv #bp-attachment-xprofile-file ').after("<span><button id='delete-upload'>Delete</button></span>");
@@ -87,6 +86,10 @@
      var url = $(location).attr('href'),
         parts = url.split("/");
         group_slug = parts[4];
+
+    if( url.indexOf( '/groups/' ) != -1 ) {
+      document.body.className = document.body.className.replace("activity","home");
+    }
 
     if( url.indexOf( '/documents/' ) != -1 ) {
       $('.group-files-minor-edit').click(function() {
