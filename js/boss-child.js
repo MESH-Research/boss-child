@@ -87,6 +87,21 @@
         parts = url.split("/");
         group_slug = parts[4];
 
+    /** 
+     * Clear the bp-activity-oldestpage cookie on page load to prevent skipping
+     * pages when loading more of an activity feed.
+     *
+     * The cookie is set in buddyboss - /boss/js/buddyboss.js
+     * ```
+     * jq.cookie( 'bp-activity-oldestpage', oldest_page, {
+     *       path: '/'
+     * } );
+     * ```
+     */
+     if( url.indexOf( '/groups/' ) != -1 ) {
+      $.removeCookie('bp-activity-oldestpage', { path: '/' } );
+     }
+
     if( url.indexOf( '/groups/' ) != -1 ) {
       document.body.className = document.body.className.replace("activity","home");
     }
