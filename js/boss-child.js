@@ -319,7 +319,7 @@
     }
 
     // we need live() to affect pages of groups loaded via ajax.
-    $('#groups-dir-list .group-button').live('DOMSubtreeModified', joinleave_group_change_handler);
+    $('#groups-dir-list .group-button').on('DOMSubtreeModified', joinleave_group_change_handler);
 
     // groups directory does not run a new query if "back" button was clicked due to browser cache, so force refresh
     // (without this, results on page can be from the wrong tab despite which is "selected")
