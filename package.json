@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/mlaa/boss-child#readme",
   "devDependencies": {
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^1.6.0"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
   }
 }

@@ -1,14 +1,14 @@
 @import 'variables';
 
-$button-background-color: #ED572F;
+$button-background-color: #729FBC;
 
 $link-color: #ED572F;
 $link-color-hover: #006ccc;
 
 @mixin button-material-hover() {
-  background-color: #ED572F;
+  background-color: white;
   box-shadow: $box-shadow-material;
-  color: $button-color;
+  color: $button-background-color;
   text-decoration: none;
 
   &:before {
