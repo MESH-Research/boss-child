@@ -235,18 +235,17 @@
     $(".no-docs").hide();
 
    if( url.indexOf( '/sites/create/' ) != -1 ) {
-
-        $(".create-site .label").html('<h3>Visibility Settings</h3>');
-
-        $("label[for='blog_public_on'] strong").remove();
-
-        $("label[for='blog_public_off'] strong").remove();
-
-        $("label[for='blog_public_on']").contents().last()[0].textContent = 'Public and allow search engines to index this site. Note: it is up to search engines to honor your request. The site will appear in public listings around Humanities Commons.';
-
-        $("label[for='blog_public_off']").contents().last()[0].textContent = "Public but discourage search engines from index this site. Note: this option does not block access to your site — it is up to search engines to honor your request. The site will appear in public listings around Humanities Commons.";
-
-
+        if ( $(".create-site .label").length ) {
+          $(".create-site .label").html('<h3>Visibility Settings</h3>');
+          if ( $("label[for='blog_public_on']").length ) {
+            $("label[for='blog_public_on'] strong").remove();
+            $("label[for='blog_public_on']").contents().last()[0].textContent = 'Public and allow search engines to index this site. Note: it is up to search engines to honor your request. The site will appear in public listings around Humanities Commons.';
+          }
+          if ( $("label[for='blog_public_off']").length ) {
+            $("label[for='blog_public_off'] strong").remove();
+            $("label[for='blog_public_off']").contents().last()[0].textContent = "Public but discourage search engines from index this site. Note: this option does not block access to your site — it is up to search engines to honor your request. The site will appear in public listings around Humanities Commons.";
+          }
+        }
     }
 
     if ( url.indexOf('/create/step/group-blog/') != -1 ||  url.indexOf('/groups/create-a-site/admin/group-blog/') != -1 || url.indexOf('/admin/group-blog/')  != -1  ) {
