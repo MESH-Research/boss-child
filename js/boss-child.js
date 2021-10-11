@@ -270,16 +270,21 @@
               // found the society_id
               society_id = matches[2];
 
-            if(society_id=='hc') {
-              $("label[for='blog-private-1']").contents().last()[0].textContent = 'Visible only to registered users of '+society_id.toUpperCase()+'.';
+            if ( $("label[for='blog-private-1']").length ) {
+              if(society_id=='hc') {
+                $("label[for='blog-private-1']").contents().last()[0].textContent = 'Visible only to registered users of '+society_id.toUpperCase()+'.';
+               } else {
+                 $("label[for='blog-private-1']").contents().last()[0].textContent = 'Visible only to registered users of '+society_id.toUpperCase()+' Commons';
+               }
+            }
 
-             } else {
-               $("label[for='blog-private-1']").contents().last()[0].textContent = 'Visible only to registered users of '+society_id.toUpperCase()+' Commons';
-             }
+            if ( $("label[for='blog-private-2']").length ) {
+              $("label[for='blog-private-2']").contents().last()[0].textContent = 'Visible only to registered users of your site.';
+            }
 
-             $("label[for='blog-private-2']").contents().last()[0].textContent = 'Visible only to registered users of your site.';
-
-             $("label[for='blog-private-3']").contents().last()[0].textContent = 'Visible only to administrators of your site.';
+            if ( $("label[for='blog-private-3']").length ) {
+              $("label[for='blog-private-3']").contents().last()[0].textContent = 'Visible only to administrators of your site.';
+            }
         }
     }
 
