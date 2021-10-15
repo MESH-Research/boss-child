@@ -65,9 +65,70 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_style', 200 );
 function boss_child_theme_enqueue_script() {
         $jtime = filemtime( get_theme_file_path() . '/js/boss-child.js' );
 	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', [], $jtime );
+
+        //override buddyboss.js from parent theme
+        wp_dequeue_script( 'buddyboss-main' );
+
+        wp_enqueue_script(
+                'buddyboss-main-override',
+                get_stylesheet_directory_uri() . '/js/buddyboss.js',
+                [],
+                filemtime( get_theme_file_path() . '/js/buddyboss.js' )
+        );
+
+        // Script localization code taken from boss/buddyboss-inc/theme-functions.php
+
+        $only_mobile = false;
+        if (
+                ( isset( $_COOKIE[ 'switch_mode' ] ) && ( boss_get_option( 'boss_layout_switcher' ) ) && $_COOKIE[ 'switch_mode' ] == 'mobile' ) ||
+                is_phone() ||
+                wp_is_mobile() ||
+                boss_get_option( 'boss_layout_desktop' ) == 'mobile'
+        ) {
+                $only_mobile = true;
+        }
+
+        $translation_array = array(
+                'only_mobile'	      => $only_mobile,
+                'comment_placeholder' => __( 'Your Comment...', 'boss' ),
+                'view_desktop'        => __( 'View as Desktop', 'boss' ),
+                'view_mobile'         => __( 'View as Mobile', 'boss' )
+        );
+        wp_localize_script( 'buddyboss-main-override', 'translation', $translation_array );
+
+        $user_profile = null;
+
+	if ( is_object( $bp ) && is_object( $bp->displayed_user ) && !empty( $bp->displayed_user->domain ) ) {
+		$user_profile = $bp->displayed_user->domain;
+	}
+
+        // Add BuddyBoss words that we need to use in JS to the end of the page
+        // so they can be translataed and still used.
+        $buddyboss_js_vars = array(
+                'select_label'	 => __( 'Show:', 'boss' ),
+                'post_in_label'	 => __( 'Post in:', 'boss' ),
+                'tpl_url'		 => get_template_directory_uri(),
+                'child_url'		 => get_stylesheet_directory_uri(),
+                'user_profile'	 => $user_profile,
+        'days'           =>  array ( __('Monday', 'boss' ), __('Tuesday', 'boss' ), __('Wednesday', 'boss' ), __('Thursday', 'boss' ), __('Friday', 'boss' ), __('Saturday', 'boss' ), __('Sunday', 'boss' ))
+        );
+
+        $buddyboss_js_vars = apply_filters( 'buddyboss_js_vars', $buddyboss_js_vars );
+
+	wp_localize_script( 'buddyboss-main-override', 'BuddyBossOptions', $buddyboss_js_vars );
+
+        //override social-learner.js from parent theme
+        wp_dequeue_script( 'social-learner' );  
+        wp_enqueue_script(
+                'social-learner-override',
+                get_stylesheet_directory_uri() . '/js/social-learner.js',
+                false,
+                filemtime( get_theme_file_path() . '/js/social-learner.js' )
+                , false
+        );
 }
 // priority 200 to ensure this loads after redux which uses 150
-add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
+add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script', 200 );
 
 function boss_child_theme_enqueue_typekit() {
 	wp_enqueue_script( 'typekit', '//use.typekit.net/bgx6tpq.js', array(), null );

@@ -302,11 +302,11 @@
 
     var previousDate;
 
-    $("#eo-start-date, #eo-end-date").focus( function() {
+    $("#eo-start-date, #eo-end-date").on( 'focus', function() {
       previousDate = $( this ).val(); ;
-    });
+    } );
 
-    $("#eo-start-date, #eo-end-date").blur( function() {
+    $("#eo-start-date, #eo-end-date").on( 'blur', function() {
         var newDate = $( this ).val();
         if (!moment( newDate, 'dd-mm-yyyy', true ).isValid() ) {
             $( this ).val( previousDate );
