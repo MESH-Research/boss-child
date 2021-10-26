@@ -66,6 +66,11 @@ function boss_child_theme_enqueue_script() {
         $jtime = filemtime( get_theme_file_path() . '/js/boss-child.js' );
 	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', [], $jtime );
 
+        //this is for settings-general ajax
+	$user = wp_get_current_user();
+	$nonce = wp_create_nonce('settings_general_nonce');
+	wp_localize_script( 'boss-child-custom', 'settings_general_req', [ 'user' => $user, 'nonce' => $nonce ], [] );
+
         //override buddyboss.js from parent theme
         wp_dequeue_script( 'buddyboss-main' );
 
@@ -173,22 +178,6 @@ function boss_child_change_profile_edit_to_view_in_adminbar() {
 }
 // priority 1000 to override boss buddyboss_strip_unnecessary_admin_bar_nodes()
 add_action( 'admin_bar_menu', 'boss_child_change_profile_edit_to_view_in_adminbar', 1000 );
-
-
-/**
- * Handles ajax for the boss-child theme
- * @return void
- */
-function boss_child_theme_ajax() {
-
-	//this is for settings-general ajax
-	$user = wp_get_current_user();
-	$nonce = wp_create_nonce('settings_general_nonce');
-	wp_localize_script( 'boss-child-custom', 'settings_general_req', [ 'user' => $user, 'nonce' => $nonce ], ['jquery'] );
-
-}
-
-add_action('wp_enqueue_scripts', 'boss_child_theme_ajax');
 
 function boss_child_fix_redux_script_paths() {
 	global $wp_scripts;
