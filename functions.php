@@ -571,3 +571,20 @@ function mla_search_results_pagination( $args ) {
 }
 
 add_filter('bbp_search_results_pagination', 'mla_search_results_pagination');
+
+/**
+ * Checks whether we should serve the MSU version, for custom MSU footers.
+ *
+ * Note: This facilitates merging the msu-boss theme with the boss-child theme.
+ * MSU requires custom footer templates. See the template-parts directory for
+ * the footers and the use of this function.
+ *
+ * @author Mike Thicke
+ *
+ * @return boolean True if this site is on the MSU network.
+ */
+function is_msu_boss() {
+	$msu_site_id = 7;
+	$current_site_id = get_current_site()->id;
+	return ( $msu_site_id === $current_site_id );
+}
