@@ -30,7 +30,7 @@ $boxed = boss_get_option( 'boss_layout_style' );
 
 			<?php /* non-network-member menu. user is logged in to at least one other network, but not this one. */ ?>
 			<?php
-				if ( is_a( $humanities_commons, 'Humanities_Commons' ) && $humanities_commons->hcommons_non_member_active_session() ) :
+				if ( is_a( $humanities_commons, 'Humanities_Commons' ) && $humanities_commons->hcommons_non_member_active_session() && $humanities_commons->hcommons_get_session_username() ) :
 
 					$session_username = $humanities_commons->hcommons_get_session_username();
 					wp_set_current_user( null, $session_username );
