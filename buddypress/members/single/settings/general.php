@@ -84,7 +84,12 @@ do_action( 'bp_before_member_settings_template' ); ?>
 <ul>
 <?php $login_methods = Humanities_Commons::hcommons_get_user_login_methods( bp_displayed_user_id() );
 	foreach ( $login_methods as $login_method ) {
-		echo '<li>' . strtoupper( $login_method ) . '</li>';
+		echo '<li>' . strtoupper( $login_method );
+		if ( strtoupper( $login_method ) === 'HC LOGIN' && isset( $_SERVER['HTTP_HOST'] ) ) {
+			$password_link = "http://hc-idp.{$_SERVER['HTTP_HOST']}/pwm/public/forgottenpassword";
+			echo " ( <a href='$password_link'>Reset Password</a> )";
+		}
+		echo '</li>';
 	} ?>
 </ul>
 <br>
@@ -141,6 +146,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 		echo '<p>Your ORCID (' . $current_orcid . ') is linked to your account.';
 	}
 } ?>
+
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 
 <form method="post" class="no-ajax standard-form" id="settings-form-general" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
