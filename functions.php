@@ -417,11 +417,7 @@ add_action( 'admin_head', 'groups_discussion_admin_metabox' );
  * @uses Humanities_Commons
  */
 function hcommons_filter_bp_get_signup_allowed( bool $allowed ) {
-	if ( Humanities_Commons::backtrace_contains( 'file', '/srv/www/commons/current/web/app/themes/boss/header.php' ) ) {
-		$allowed = true;
-	}
-
-	return $allowed;
+	return true;
 }
 add_filter( 'bp_get_signup_allowed', 'hcommons_filter_bp_get_signup_allowed' );
 
