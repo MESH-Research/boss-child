@@ -126,7 +126,7 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   width: auto;
 }
 #mastlogo #logo .site-title {
-  display: inline;
+  display: inline-block;
   vertical-align: top;
 }
 #mastlogo #logo .site-title a:first-child img,

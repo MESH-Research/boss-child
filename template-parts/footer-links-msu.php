@@ -31,7 +31,7 @@
 <ul class="msu_footer_unit_info">
     <li>Call Us: <a href="tel:+15173538700">(517)&nbsp;353-8700</a> 
     <li><a href="http://www.lib.msu.edu/contact" rel="nofollow">Contact&nbsp;Information</a></li>
-    <li><a href="/privacy/" rel="nofollow">Privacy&nbsp;Statement</a></li>
+    <li><a href="https://sustaining.hcommons.org/policies/privacy/" rel="nofollow">Privacy&nbsp;Statement</a></li>
 </ul>
 </div>
 <div class="panel-panel grid-9 alpha omega">
