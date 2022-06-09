@@ -88,7 +88,7 @@
 		<div id="panels" class="<?php echo (boss_get_option( 'boss_adminbar' )) ? 'with-adminbar' : ''; ?>">
 
 			<!-- Left Panel -->
-			<?php get_template_part( 'template-parts/left-panel' ); ?>
+			<?php // get_template_part( 'template-parts/left-panel' ); ?>
 			<!-- Left Mobile Menu -->
 			<?php get_template_part( 'template-parts/left-mobile-menu' ); ?>
 

@@ -47,17 +47,38 @@
     flex-direction: row-reverse;
 
     #titlebar-search {
-      width: 24rem;
+      width: 22rem;
       margin-right: 2rem;
+      text-align: left;
+      border-style: solid;
+      border-radius: 5px;
+      border-width: 1px;
+      padding: 0;
+      border-color: black;
+
+      &:focus-within {
+        outline-style: solid;
+        outline-width: 2px;
+        outline-color: #9ecaed;
+      }
 
       form {
         position: static;
+        background-color: transparent;
       }
 
       #s {
         float: none;
-        padding: 1rem;
         margin: 0;
+        width: calc( 100% - 2rem);
+        border-style: none;
+        background-color: transparent;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      #s:focus {
+        outline:none;
       }
 
       #searchsubmit {
@@ -65,7 +86,29 @@
         display: inline-flex;
         flex-direction: row-reverse;
         align-items: center;
+        right: 1rem;
       }
+    }
+
+    #header-menu {
+      
+      &>ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        li {
+          a {
+            background-color: transparent;
+            color: black;
+          }
+        }
+
+        ul {
+          border-top-color: black; 
+        }
+      }
+      
     }
   }
 
