@@ -437,8 +437,13 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark" class="post-date fa fa-clock-o"><time class="entry-date" datetime="%3$s">%4$s</time></a>', esc_url( get_permalink() ), esc_attr( get_the_time() ), esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date() )
 	);
 
+        /*
 	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_attr( sprintf( __( 'View %s', 'boss' ), get_the_author() ) ), get_the_author()
 	);
+        */
+        $author_url = bp_core_get_user_domain( get_the_author_meta( 'ID') );
+        $author_name = get_the_author_meta( 'display_name' );
+        $author = "<span class='author vcard'><a class='url fn n' href='$author_url' rel='author'>$author_name</a></span>";
 
 	// for bp avatars
 	$args = [
@@ -472,10 +477,10 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 	}
 
 	if ( $show_author ) {
-		echo '<span class="post-author">';
+		echo '<div class="post-author">';
 		echo $avatar;
 		echo $author;
-		echo '</span>';
+		echo '</div>';
 	}
 
 	if ( $show_date ) {
