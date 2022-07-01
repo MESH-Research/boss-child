@@ -24,11 +24,20 @@
 	<!-- Search, Blog index, archives -->
 	<?php if ( is_search() || is_archive() || is_home() ) : // Only display Excerpts for Search, Blog index, and archives ?>
 
+		<?php
+		$the_post = get_post();
+		$blogstring = '';
+		if ( $the_post->post_type === 'post' || $the_post->post_type === 'page' ) {
+			$blogname = get_blog_details()->blogname;
+			$blogstring = " ($blogname)";
+		}
+		?>
+
 		<div class="post-wrap">
 
 			<header>
 				<h1 class="entry-title">
-					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'boss' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'boss' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); echo $blogstring; ?></a>
 				</h1>
 			</header><!-- .entry-header -->
 
