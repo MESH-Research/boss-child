@@ -59,6 +59,12 @@
   $(document).ready(function(){
 
 
+      // Micromodal
+      console.log("Init Micromodal")
+      MicroModal.init( {
+        openTrigger: 'data-custom-open',
+      } );
+
     if ( $( ".cv p" ).length ) {
       $('.cv #bp-attachment-xprofile-file ').after("<span><button id='delete-upload'>Delete</button></span>");
 
