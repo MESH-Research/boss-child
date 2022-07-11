@@ -40,7 +40,10 @@ div#buddypress div#subnav.item-list-tabs ul li a,
   @include button-material();
 }
 
-
+.generic-button {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
 
 div#buddypress div#subnav.item-list-tabs ul li.selected a,
 div#buddypress div#subnav.item-list-tabs ul li.current a {
