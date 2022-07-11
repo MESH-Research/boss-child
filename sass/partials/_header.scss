@@ -4,7 +4,7 @@
 
 #masthead {
   font-size: 20px;
-  height: 65px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -17,6 +17,17 @@
     box-shadow: none;
     color: inherit;
     font-size: 1.5rem;
+    border-radius: 0;
+    transition: none;
+  }
+
+  img {
+    padding: 5px;
+  }
+
+  a:focus, li:focus-within, button:focus {
+    background-color: $button-focus-color;
+    outline: none;
   }
 
   #header-logo {
@@ -31,6 +42,7 @@
       flex-grow: 0;
       flex-shrink: 1;
       display: block;
+      padding-bottom: 10px;
       height: 100%;
     }
 
@@ -121,6 +133,11 @@
       }
     }
 
+    .header-navigation a {
+      color: $link-color;
+      font-size: 20px;
+    }
+
     #header-menu {
       
       &>ul {
@@ -128,10 +145,24 @@
         flex-direction: row;
         gap: 1rem;
 
+        &:focus-within {
+          overflow: visible;
+        }
+
         li {
           a {
             background-color: transparent;
             color: black;
+          }
+
+          &:focus-within {           
+            .sub-menu {
+              opacity: 1;
+              overflow-x: visible;
+              overflow-y: visible;
+              visibility: visible;
+            }
+          
           }
         }
 
@@ -144,7 +175,7 @@
         }
       }
       
-    }
+    }   
   }
 
   #header-profile {
@@ -157,11 +188,6 @@
     .header-account-login {
       padding-right: 1rem;
     }
-  }
-
-  .header-navigation a {
-    color: $link-color;
-    font-size: 20px;
   }
 
   a {
