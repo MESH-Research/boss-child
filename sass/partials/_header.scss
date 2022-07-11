@@ -28,6 +28,22 @@
   a:focus, li:focus-within, button:focus {
     background-color: $button-focus-color;
     outline: none;
+    text-decoration: underline;
+  }
+
+  .skip-navigation {
+    display: block;
+    background-color: $page-background-color;
+    position: absolute;
+    padding: 5px;
+    border-style: solid;
+    border-width: 2px;
+    transform: translateX(-150%);
+
+    &:focus {
+      transform: translateX(0);
+      text-decoration: underline;
+    }
   }
 
   #header-logo {

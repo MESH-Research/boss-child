@@ -61,6 +61,8 @@
 
 		<header id="masthead" class="site-header" data-infinite="<?php echo ( boss_get_option( 'boss_activity_infinite' ) ) ? 'on' : 'off'; ?>">
 
+			<a class="skip-navigation" href="#content">Skip to content</a>
+
 			<div id="header-logo">
 				<a href="<?= $home_url ?>" rel="home">
 					<?= $logo_small ?>
