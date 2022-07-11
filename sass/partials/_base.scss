@@ -64,6 +64,14 @@ a {
   }
 }
 
+#buddypress {
+  #item-header {
+    #header-cover-image {
+      background-size: cover !important; /* override inline style */
+    }
+  }
+}
+
 #footer-links a:hover {
   color: $link-color;
 }
