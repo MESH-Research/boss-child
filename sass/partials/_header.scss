@@ -136,7 +136,11 @@
         }
 
         ul {
-          border-top-color: black; 
+          border-top-width: 0;
+          
+          a {
+            font-size: 0.8em;
+          }
         }
       }
       
