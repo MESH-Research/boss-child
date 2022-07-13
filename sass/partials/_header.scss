@@ -96,6 +96,7 @@
         position: absolute;
         right: 0;
         top: 3rem;
+        width: min( 30rem, 60vw );
       }
   
       #modal-1-close {
@@ -105,7 +106,7 @@
       }
   
       #modal-1-content {
-        width: 30rem;
+        width: 100%;
       }
     }
 
