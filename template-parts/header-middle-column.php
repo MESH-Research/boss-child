@@ -34,6 +34,7 @@ $boxed = boss_get_option( 'boss_layout_style' );
 	if ( !empty( $buddypanel_menu ) || !empty( $titlebar_menu ) ): ?>
 		<!-- Navigation -->
 		<div class="header-navigation">
+			<button class="nav-hamburger"><span class="fa fa-bars"></span></button>
 			<div id="header-menu">
 				<ul>
 					<?php echo $buddypanel_menu . $titlebar_menu; ?>
