@@ -137,12 +137,12 @@ var BuddyBossMain = ( function ( $, window, undefined ) {
             // hide or show with media queries. We use this to determine if we're
             // on mobile resolution
             $mobile_check.remove().appendTo( $body );
-
+           
 //                mobile_css = window.document.getElementById('boss-main-mobile-css'),
 //                $mobile_css = $(mobile_css);
-
             if ( $.cookie( 'switch_mode' ) != 'mobile' ) {
 //                    if(($mobile_css.attr('media') != 'all')) {
+                
                 if ( ( !translation.only_mobile ) ) {
                     if ( viewport().width < 480 ) {
                         $( 'body' ).removeClass( 'is-desktop' ).addClass( 'is-mobile' );
@@ -153,7 +153,6 @@ var BuddyBossMain = ( function ( $, window, undefined ) {
             }
 
             is_mobile = BuddyBoss.is_mobile = $( 'body' ).hasClass( 'is-mobile' );
-
             return is_mobile;
         }
 
