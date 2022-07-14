@@ -917,7 +917,7 @@ var BuddyBossMain = ( function ( $, window, undefined ) {
          3.13 - Add spinner
          --------------------------------------------------------------------------------------------------------*/
         function initSpinner() {
-            $( '#main-button, .generic-button:not(.pending):not(.group-subscription-options)' ).on( 'click', function () {
+            $( '#main-button, .generic-button:not(.pending):not(.group-subscription-options):not(.follow-button)' ).on( 'click', function () {
                 $link = $( this ).find( 'a' );
                 if ( !$link.find( 'i' ).length && !$link.hasClass( 'pending' ) ) {
                     $link.append( '<i class="fa fa-spinner fa-spin"></i>' );
