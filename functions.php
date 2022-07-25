@@ -598,3 +598,17 @@ function is_msu_boss() {
 	$current_site_id = get_current_site()->id;
 	return ( $msu_site_id === $current_site_id );
 }
+
+function hc_boss_child_register_sidebars() {
+	// Area 1, located in the pages and posts right column.
+	register_sidebar( array(
+		'name'		 => 'Sites Sidebar',
+		'id'	         => 'sidebar-sites',
+		'description'	 => 'Righthand sidebar for sites page.',
+		'before_widget'	 => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'	 => '</aside>',
+		'before_title'	 => '<h3 class="widgettitle">',
+		'after_title'	 => '</h3>'
+	) );
+}
+add_action( 'widgets_init', 'hc_boss_child_register_sidebars' );
