@@ -6,6 +6,19 @@
  */
 get_header(); ?>
 
+<?php if(is_multisite() && bp_is_current_component( 'blogs' ) && !bp_is_user()): ?>
+<div class="dir-page-entry">
+    <div class="inner-padding">
+        <header class="group-header page-header">
+            <div id="item-statistics" class="follows">
+                <h1 class="main-title"><?php buddyboss_page_title(); ?></h1>
+            </div><!-- #item-statistics -->
+        </header><!-- .group-header -->
+        <?php do_action( 'bp_before_directory_blogs_content' ); ?>
+    </div>
+</div>
+<?php endif; ?>
+
 <div class="page-right-sidebar">
 
 	<div id="primary" class="site-content">
@@ -13,7 +26,7 @@ get_header(); ?>
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', 'page' ); ?>
+				<?php get_template_part( 'content', 'buddypress' ); ?>
 				<?php comments_template( '', true ); ?>
 			<?php endwhile; // end of the loop. ?>
 
