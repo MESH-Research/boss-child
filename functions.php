@@ -612,3 +612,31 @@ function hc_boss_child_register_sidebars() {
 	) );
 }
 add_action( 'widgets_init', 'hc_boss_child_register_sidebars' );
+
+/**
+ * Filters out sites with the hide-site-from-listing option set to '1'.
+ * 
+ * This can be set in the Settings screen when editing a site through wp-admin.
+ *
+ * @see https://github.com/MESH-Research/hastac-migration/issues/88 
+ */
+function hc_filter_hidden_sites_from_sites_page( $blogs, $r ) {
+        if ( strpos( get_page_template(), 'page-sites.php' ) === false ) {
+                return $blogs;
+        }
+
+        $filtered_blog_list = array_values ( array_filter(
+                $blogs['blogs'],
+                function ( $item ) {
+                        return  get_blog_option( $item->blog_id, 'hide-site-from-listing' ) !== '1';
+                }
+        ) );
+
+        $filtered_blogs = [
+                'blogs' => $filtered_blog_list,
+                'total' => strval( count( $filtered_blog_list ) )
+        ];
+
+        return $filtered_blogs;
+}
+add_filter( 'bp_blogs_get_blogs', 'hc_filter_hidden_sites_from_sites_page', 10, 2 );
