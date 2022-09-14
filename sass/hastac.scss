@@ -16,4 +16,12 @@ $link-color-hover: #006386;
   }
 }
 
+.directory.groups #primary #buddypress {
+  ul#groups-list.item-list {
+    li.hidden {
+      display: none;
+    }
+  }
+}
+
 @import 'global';
