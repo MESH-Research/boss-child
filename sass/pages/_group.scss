@@ -234,6 +234,20 @@ li.bbp-topic-title a.bbp-topic-permalink {
   }
 }
 
+#buddypress {
+  #bp-group-documents-form {
+    .bp-group-documents-featured-label {
+      display: inline-block;
+    }
+  }
+
+  div.admin-links {
+    background-color: #fff;
+    padding: 0.5em;
+  }
+
+}
+
 .bbp-topics-front ul.super-sticky div.bbp-topic-title-content:before,
 .bbp-topics ul.super-sticky div.bbp-topic-title-content:before,
 .bbp-topics ul.sticky div.bbp-topic-title-content:before,
