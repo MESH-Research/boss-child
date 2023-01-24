@@ -24,6 +24,16 @@ textarea {
   }
 }
 
+.academic-interests {
+  input[type="search"] {
+    &.select2-search__field {
+      height: 2em;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
 .groups-members-search input[type="text"] {
   border: none;
 }
