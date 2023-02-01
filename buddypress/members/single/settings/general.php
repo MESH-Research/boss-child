@@ -46,20 +46,12 @@ do_action( 'bp_before_member_settings_template' ); ?>
 						echo "<a href='https://www.mla.org/Membership/Join-Renew/Introduction'>Renew membership</a></p>";
 					break;
 
-					case 'ajs':
-						echo "<a href='http://www.ajsnet.org/enroll.htm'>Renew membership</a></p>";
-					break;
-
 					case 'arlisna':
 						echo "<a href='https://www.arlisna.org/membership/join-arlisna'>Renew membership</a></p>";
 					break;
 
 					case "aseees":
 						echo "<a href='https://netforum.avectra.com/eweb/DynamicPage.aspx?Site=aseees&WebCode=invmemberjoin'>Renew membership</a></p>";
-					break;
-
-					case "caa":
-						echo "<a href='https://services.collegeart.org/eweb/DynamicPage.aspx?Webcode=JOINCAA'>Renew membership</a></p>";
 					break;
 
 					case "sah":
